@@ -1,6 +1,3 @@
-//package isomorfism_check;
-
-//import graph.NodeList;
 import java.util.List;
 
 

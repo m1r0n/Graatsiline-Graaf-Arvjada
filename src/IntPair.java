@@ -1,5 +1,3 @@
-//package isomorfism_check;
-
 /**
  * Pair type meant only for positive integers.
  */
