@@ -10,11 +10,19 @@ public class GraatsilineGraaf{
     private static short n;
     private NodeList tipud;
     private short[] servad;
+    private int[][] kulgnevusMaatriks;
 
     GraatsilineGraaf(short[] servad, short n) {
         this.servad = servad;
         GraatsilineGraaf.n = n;
-        this.tipud = new NodeList(kulgnevus_maatriks(servad));
+        this.kulgnevusMaatriks = kulgnevus_maatriks(servad);
+        this.tipud = new NodeList(this.kulgnevusMaatriks);
+    }
+
+    GraatsilineGraaf(int[][] maatriks, short n) {
+        this.kulgnevusMaatriks = maatriks;
+        this.tipud = new NodeList(maatriks);
+        GraatsilineGraaf.n = n;
     }
 
     private static int[][] kulgnevus_maatriks(short[] servad) {
@@ -29,27 +37,19 @@ public class GraatsilineGraaf{
         return adj;
     }
 
-    public static String valjasta_kulgnevusmaatriks(int[][] adj) {//väljastab külgnevusmaatriksi
+    private static String valjasta_kulgnevusmaatriks(int[][] adj) {//väljastab külgnevusmaatriksi
         StringBuilder sb = new StringBuilder();
-        //Nüüd väljastame külgnevusmaatriksi
         for (int i = 0; i <= n ; i++) {
-
             for (int j = 0; j <= n; j++)
-                sb.append(adj[i][j] + " ");
-
+                sb.append(adj[i][j]).append(" ");
             sb.append("\n");
         }
         return sb.toString();
     }
 
-
-    public NodeList getTipud() {
-        return tipud;
-    }
-
     @Override
     public String toString() {
-        return valjasta_kulgnevusmaatriks(kulgnevus_maatriks(servad));
+        return valjasta_kulgnevusmaatriks(this.kulgnevusMaatriks);
     }
 
     @Override

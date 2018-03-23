@@ -5,15 +5,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 10;//servade arv, tippe 1 vırra rohkem !!!!!
-    private static final short rek = 4; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lıimedeks
+    private static final short n = 10;//servade arv, tippe 1 v√µrra rohkem !!!!!
+    private static final short rek = 4; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf l√µimedeks
     private static final short arvutiJagamine = 3;
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
-
-
     private static volatile Set<GraatsilineGraaf> unikaalsed;
 
+    //L√µim t√∂√∂tab eraldi meetodis
     private static Set<GraatsilineGraaf> genereeriGraaf(int pikkus, short[] servad, Set<GraatsilineGraaf> threadiGraafid) {
         if (pikkus == 0) {
             threadiGraafid.add(new GraatsilineGraaf(servad,n));
@@ -32,9 +31,9 @@ public class Graatsilised_UUS3 {
     }
 
     private static void genereeriGraaf(int pikkus, short[] servad) {
-        // L’IMEDE VAHEL JAGAMINE
+        // L√ïIMEDE VAHEL JAGAMINE
         if(pikkus == n - rek) {
-            for (int i = 0; i < n - pikkus; i++) {
+            for (int i = 0; i <= n - pikkus; i++) {
                 final int index = i;
                 new Thread(() -> {
                     short[] uus = new short[servad.length + 1];
@@ -45,13 +44,13 @@ public class Graatsilised_UUS3 {
                 }).start();
             }
         }
-        //iga arvuti saab arvutiNR, mis m‰‰rab igale arvutile tema vastava haru puus.
+        //iga arvuti saab arvutiNR, mis m√§√§rab igale arvutile tema vastava haru puus.
         else if (pikkus == n - arvutiJagamine) {
             short[] uus = new short[servad.length + 1];
-            uus[0] = (short)(arvutiNR % (arvutiJagamine+1)); //iga arvuti saab endale ¸he kindla haru. Kasutan arvutiJagamine + 1 jagamisega j‰‰ki.
-            // see t‰hendab, et tasemel 3 jagatakse 24 arvutiks
+            uus[0] = (short)(arvutiNR % (arvutiJagamine+1)); //iga arvuti saab endale √ºhe kindla haru. Kasutan arvutiJagamine + 1 jagamisega j√§√§ki.
+            // see t√§hendab, et tasemel 3 jagatakse 24 arvutiks
             // Tekivad arvud 1,2,3,...,0,1,2,3,...,0 jne.
-            // ¸lej‰‰nud kopeerime
+            // √ºlej√§√§nud kopeerime
             System.arraycopy(servad, 0, uus, 1, servad.length);
             genereeriGraaf((short) (pikkus - 1), uus);
         }
@@ -74,18 +73,18 @@ public class Graatsilised_UUS3 {
         short[] jada = new short[0];
         genereeriGraaf(n, jada);
 
-        while (Thread.activeCount() > 2) ; //Ootame, kuni kıik lıimed on oma tˆˆ lıpetanud
+        while (Thread.activeCount() > 2) ; //Ootame, kuni k√µik l√µimed on oma t√∂√∂ l√µpetanud
         System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
 
         long stop = System.currentTimeMillis();
         System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
         System.out.println("TOTAL:" + counter.toString());
 
-        /*
+
         for (GraatsilineGraaf graaf : unikaalsed) {
             System.out.println(graaf);
         }
-        */
+
 
 
         /*
