@@ -1,71 +1,124 @@
+import java.io.BufferedReader;
 import java.io.File;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.io.FileReader;
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * Created by Miron on 22/03/2018.
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 6;
+    private static final short tippudeArv = 8;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
+    private static final int nrOfThreads = 4;
+    private static final String failideAsukoht = "C:/Users/Miron/Desktop/Graatsiline-Graaf-Arvjada";
+    private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
+    private static final Object lock = new Object();
 
     public static void main(String[] args) {
+
         graafid = Collections.synchronizedSet(new HashSet<>());
+        globalQueue = new ConcurrentLinkedQueue();
+
+        ExecutorService threadPoolExecutor = Executors.newFixedThreadPool(nrOfThreads);
 
         //failide nimekiri
-        File dir = new File("C:/Users/Miron/Desktop/Graatsiline-Graaf-Arvjada");
+        File dir = new File(failideAsukoht);
         File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith("isomorfsus"));
 
+        //Failide sisselugemine
         for (File file : foundFiles) {
-            System.out.println(file.getName());
+            Runnable readFromFile = () -> {
+
+                Set<GraatsilineGraaf> threadiGraafid = Collections.synchronizedSet(new HashSet<>());
+
+                try(BufferedReader br = new BufferedReader(new FileReader(file.getName()))) {
+                    String line = br.readLine();
+
+                    int[][] graafiMaatriks = new int[tippudeArv][];
+                    int rida = 0;
+                    while (line != null) {
+                        if (line.length() != 0) {
+                            rida++;
+                            int[] array = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
+                            graafiMaatriks[rida-1] = array;
+
+                            if (rida == tippudeArv) {
+                                threadiGraafid.add(new GraatsilineGraaf(graafiMaatriks, servadeArv));
+                                graafiMaatriks = new int[tippudeArv][];
+                                rida = 0;
+                            }
+                        }
+                        line = br.readLine();
+                    }
+                    globalQueue.add(threadiGraafid);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            };
+            threadPoolExecutor.execute(readFromFile);
         }
 
-        int  corePoolSize  =    5;
-        int  maxPoolSize   =   10;
-        long keepAliveTime = 5000;
+        while (globalQueue.size() < foundFiles.length); //Wait until all threads done
+        threadPoolExecutor.shutdown();
 
-        ExecutorService threadPoolExecutor =
-                new ThreadPoolExecutor(
-                        corePoolSize,
-                        maxPoolSize,
-                        keepAliveTime,
-                        TimeUnit.MILLISECONDS,
-                        new LinkedBlockingQueue<Runnable>()
-                );
+        while (threadPoolExecutor.isTerminated()); //wait
 
+        Set<GraatsilineGraaf> finalSet = new HashSet<>();
+        for (Set<GraatsilineGraaf> graafid : globalQueue) {
+            finalSet.addAll(graafid);
+        }
+        System.out.println(finalSet.size());
 
         /*
-        try(BufferedReader br = new BufferedReader(new FileReader("isomorfsus.txt"))) {
-            String line = br.readLine();
-
-            int[][] graafiMaatriks = new int[tippudeArv][];
-            int rida = 0;
-            while (line != null) {
-                if (line.length() != 0) {
-                    rida++;
-                    int[] array = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-                    graafiMaatriks[rida-1] = array;
-
-                    if (rida == tippudeArv) {
-                        graafid.add(new GraatsilineGraaf(graafiMaatriks, servadeArv));
-                        graafiMaatriks = new int[tippudeArv][];
-                        rida = 0;
+        List<Future<?>> futures = new ArrayList<>();
+        while (true) {
+            if (globalQueue.size() == 0) {
+                for(Future<?> future : futures) {
+                    try {
+                        future.get(); // get will block until the future is done
+                    } catch (InterruptedException | ExecutionException e) {
+                        e.printStackTrace();
                     }
                 }
-                line = br.readLine();
             }
+            if (globalQueue.size() == 1) {
+                boolean allDone = true;
+                for(Future<?> future : futures){
+                    allDone &= future.isDone(); // check if future is done
+                }
+                if (allDone) {
+                    break;
+                }
+            }
+            Runnable runnableTask = () -> {
+                Set<GraatsilineGraaf> set1;
+                Set<GraatsilineGraaf> set2;
+                synchronized (lock) {
+                    set1 = globalQueue.poll();
+                    set2 = globalQueue.poll();
+                }
+                set1.addAll(set2);
+                globalQueue.add(set1);
+            };
+            Future<?> f = threadPoolExecutor.submit(runnableTask);
+            futures.add(f);
         }
-        catch (Exception e){
+
+        threadPoolExecutor.shutdown();
+        try {
+            threadPoolExecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        System.out.println("FINAL: " + globalQueue.size());
+        System.out.println("n=" + tippudeArv + " puhul on graatsilisi graafe: " + globalQueue.peek().size());
         */
+
     }
 
 }
