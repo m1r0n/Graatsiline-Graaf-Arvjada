@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 7;//servade arv, tippe 1 võrra rohkem !!!!!
+    private static final short n = 10;//servade arv, tippe 1 võrra rohkem !!!!!
     private static final short rek = 4; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
@@ -78,15 +78,15 @@ public class Graatsilised_UUS3 {
         System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
         System.out.println("TOTAL:" + counter.toString());
 
-        /*
+
         for (GraatsilineGraaf graaf : unikaalsed) {
             System.out.println(graaf);
         }
-        */
 
 
 
 
+/*
         try {
             PrintWriter valjund = new PrintWriter(new FileWriter("isomorfsus.txt"), true);
             PrintWriter valjund1 = new PrintWriter(new FileWriter("isomorfsus_1.txt"), true);
@@ -102,8 +102,9 @@ public class Graatsilised_UUS3 {
         } catch (IOException e) {
             System.out.println("S/V viga: " + e);
         }
-
+*/
     }
+
 }
 
 
