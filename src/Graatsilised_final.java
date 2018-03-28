@@ -9,7 +9,7 @@ import java.util.concurrent.*;
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 10;
+    private static final short tippudeArv = 9;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
     private static final int nrOfThreads = 6;
