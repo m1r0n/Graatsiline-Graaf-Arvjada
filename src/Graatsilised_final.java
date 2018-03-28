@@ -19,6 +19,8 @@ public class Graatsilised_final{
 
     public static void main(String[] args) {
 
+        long start = System.currentTimeMillis();
+
         graafid = Collections.synchronizedSet(new HashSet<>());
         globalQueue = new ConcurrentLinkedQueue();
 
@@ -63,9 +65,19 @@ public class Graatsilised_final{
         }
 
         while (globalQueue.size() < foundFiles.length); //Wait until all threads done
+        long stop = System.currentTimeMillis();
+        System.out.println("Faili lugemine " + (stop - start) / 1000.0 + " sekundit");
+
         threadPoolExecutor.shutdown();
 
-        while (threadPoolExecutor.isTerminated()); //wait
+        try {
+            threadPoolExecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
+        }
+
+        stop = System.currentTimeMillis();
+        System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
+
 
         Set<GraatsilineGraaf> finalSet = new HashSet<>();
         for (Set<GraatsilineGraaf> graafid : globalQueue) {

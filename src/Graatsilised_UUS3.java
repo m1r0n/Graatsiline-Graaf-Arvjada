@@ -9,12 +9,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 10;//servade arv, tippe 1 võrra rohkem !!!!!
-    private static final short rek = 4; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short n = 9;//servade arv, tippe 1 võrra rohkem !!!!!
+    private static final short rek = 3; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
-    private static final short[][] options = {{0,0,0,0},{0,0,0,1},{0,0,0,2},{0,0,0,3},{0,0,1,0},{0,0,1,1},{0,0,1,2},{0,0,1,3},{0,0,2,0},{0,0,2,1},{0,0,2,2},{0,0,2,3},{0,1,0,0},{0,1,0,1},{0,1,0,2},{0,1,0,3},{0,1,1,0},{0,1,1,1},{0,1,1,2},{0,1,1,3},{0,1,2,0},{0,1,2,1},{0,1,2,2},{0,1,2,3}};
+    //private static final short[][] options = {{0,0,0,0},{0,0,0,1},{0,0,0,2},{0,0,0,3},{0,0,1,0},{0,0,1,1},{0,0,1,2},{0,0,1,3},{0,0,2,0},{0,0,2,1},{0,0,2,2},{0,0,2,3},{0,1,0,0},{0,1,0,1},{0,1,0,2},{0,1,0,3},{0,1,1,0},{0,1,1,1},{0,1,1,2},{0,1,1,3},{0,1,2,0},{0,1,2,1},{0,1,2,2},{0,1,2,3}};
+    private static final short[][] options = {{0,0,0},{0,0,1},{0,0,2},{0,1,0},{0,1,1},{0,1,2}};
 
     //Lõim töötab eraldi meetodis
     private static Set<GraatsilineGraaf> genereeriGraaf(int pikkus, short[] servad, Set<GraatsilineGraaf> threadiGraafid) {
@@ -52,11 +53,6 @@ public class Graatsilised_UUS3 {
         else {
             short[] uus = new short[servad.length + 1];
             uus[0] = options[arvutiNR][n-pikkus];
-            System.out.println(uus[0]);
-            //uus[0] = (short)(arvutiNR % (arvutiJagamine+1)); //iga arvuti saab endale ühe kindla haru. Kasutan arvutiJagamine + 1 jagamisega jääki.
-            // see tähendab, et tasemel 3 jagatakse 24 arvutiks
-            // Tekivad arvud 1,2,3,...,0,1,2,3,...,0 jne.
-            // ülejäänud kopeerime
             System.arraycopy(servad, 0, uus, 1, servad.length);
             genereeriGraaf((short) (pikkus - 1), uus);
         }
@@ -67,16 +63,16 @@ public class Graatsilised_UUS3 {
 
         unikaalsed = Collections.synchronizedSet(new HashSet<>());
 
-        long start = System.currentTimeMillis();
+        //long start = System.currentTimeMillis();
         short[] jada = new short[0];
         genereeriGraaf(n, jada);
 
         while (Thread.activeCount() > 2) ; //Ootame, kuni kõik lõimed on oma töö lõpetanud
-        System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
+        //System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
 
-        long stop = System.currentTimeMillis();
-        System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
-        System.out.println("TOTAL:" + counter.toString());
+        //long stop = System.currentTimeMillis();
+        //System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
+        //System.out.println("TOTAL:" + counter.toString());
 
 
         for (GraatsilineGraaf graaf : unikaalsed) {
@@ -84,26 +80,20 @@ public class Graatsilised_UUS3 {
         }
 
 
-
-
-/*
+        /*
         try {
             PrintWriter valjund = new PrintWriter(new FileWriter("isomorfsus.txt"), true);
-            PrintWriter valjund1 = new PrintWriter(new FileWriter("isomorfsus_1.txt"), true);
-            PrintWriter valjund2 = new PrintWriter(new FileWriter("isomorfsus_2.txt"), true);
-            PrintWriter valjund3 = new PrintWriter(new FileWriter("isomorfsus_3.txt"), true);
             for (GraatsilineGraaf graaf : unikaalsed) {
                 valjund.println(graaf);
-                valjund1.println(graaf);
-                valjund2.println(graaf);
-                valjund3.println(graaf);
             }
             valjund.close();
         } catch (IOException e) {
             System.out.println("S/V viga: " + e);
         }
-*/
+        */
+
     }
+
 
 }
 
