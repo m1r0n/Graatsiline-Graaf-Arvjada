@@ -9,13 +9,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 8;//servade arv, tippe 1 võrra rohkem !!!!!
-    private static final short rek = 2; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short n = 10;//servade arv, tippe 1 võrra rohkem !!!!!
+    private static final short rek = 3; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
-    //private static final short[][] options = {{0,0,0,0},{0,0,0,1},{0,0,0,2},{0,0,0,3},{0,0,1,0},{0,0,1,1},{0,0,1,2},{0,0,1,3},{0,0,2,0},{0,0,2,1},{0,0,2,2},{0,0,2,3},{0,1,0,0},{0,1,0,1},{0,1,0,2},{0,1,0,3},{0,1,1,0},{0,1,1,1},{0,1,1,2},{0,1,1,3},{0,1,2,0},{0,1,2,1},{0,1,2,2},{0,1,2,3}};
-    private static final short[][] options = {{0,0,0},{0,0,1},{0,0,2},{0,1,0},{0,1,1},{0,1,2}};
+    private static final short[][] options = {{0,0,0,0},{0,0,0,1},{0,0,0,2},{0,0,0,3},{0,0,1,0},{0,0,1,1},{0,0,1,2},{0,0,1,3},{0,0,2,0},{0,0,2,1},{0,0,2,2},{0,0,2,3},{0,1,0,0},{0,1,0,1},{0,1,0,2},{0,1,0,3},{0,1,1,0},{0,1,1,1},{0,1,1,2},{0,1,1,3},{0,1,2,0},{0,1,2,1},{0,1,2,2},{0,1,2,3}};
+    //private static final short[][] options = {{0,0,0},{0,0,1},{0,0,2},{0,1,0},{0,1,1},{0,1,2}};
 
     //Lõim töötab eraldi meetodis
     private static Set<GraatsilineGraaf> genereeriGraaf(int pikkus, short[] servad, Set<GraatsilineGraaf> threadiGraafid) {
