@@ -1,21 +1,17 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 10;//servade arv, tippe 1 võrra rohkem !!!!!
-    private static final short rek = 3; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short n = 11;//servade arv, tippe 1 võrra rohkem !!!!!
+    private static final short rek = 4; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
-    private static final short[][] options = {{0,0,0,0},{0,0,0,1},{0,0,0,2},{0,0,0,3},{0,0,1,0},{0,0,1,1},{0,0,1,2},{0,0,1,3},{0,0,2,0},{0,0,2,1},{0,0,2,2},{0,0,2,3},{0,1,0,0},{0,1,0,1},{0,1,0,2},{0,1,0,3},{0,1,1,0},{0,1,1,1},{0,1,1,2},{0,1,1,3},{0,1,2,0},{0,1,2,1},{0,1,2,2},{0,1,2,3}};
-    //private static final short[][] options = {{0,0,0},{0,0,1},{0,0,2},{0,1,0},{0,1,1},{0,1,2}};
+    private static List<List<Short>> options;
 
     //Lõim töötab eraldi meetodis
     private static Set<GraatsilineGraaf> genereeriGraaf(int pikkus, short[] servad, Set<GraatsilineGraaf> threadiGraafid) {
@@ -52,7 +48,7 @@ public class Graatsilised_UUS3 {
         //iga arvuti saab arvutiNR, mis määrab igale arvutile tema vastava haru puus.
         else {
             short[] uus = new short[servad.length + 1];
-            uus[0] = options[arvutiNR][n-pikkus];
+            uus[0] = options.get(arvutiNR).get(n-pikkus);
             System.arraycopy(servad, 0, uus, 1, servad.length);
             genereeriGraaf((short) (pikkus - 1), uus);
         }
@@ -60,6 +56,8 @@ public class Graatsilised_UUS3 {
 
     public static void main(String[] args) {
         arvutiNR = Short.parseShort(args[0]);
+        options = genereeriTeeValikud();
+
 
         unikaalsed = Collections.synchronizedSet(new HashSet<>());
 
@@ -68,6 +66,7 @@ public class Graatsilised_UUS3 {
         genereeriGraaf(n, jada);
 
         while (Thread.activeCount() > 2) ; //Ootame, kuni kõik lõimed on oma töö lõpetanud
+
         //System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
 
         //long stop = System.currentTimeMillis();
@@ -75,12 +74,35 @@ public class Graatsilised_UUS3 {
         //System.out.println("TOTAL:" + counter.toString());
 
 
+
         for (GraatsilineGraaf graaf : unikaalsed) {
             System.out.println(graaf);
         }
 
 
-        /*
+    }
+
+    private static List<List<Short>> genereeriTeeValikud() {
+        int valikuteTase = rek + 1;
+        List<List<Short>> valikud = new ArrayList<>();
+        List<Short> temporary = new ArrayList();
+        temporary.add((short) 0);
+        valikud.add(temporary);
+        for (int i = 1; i < valikuteTase; i++) {
+            List<List<Short>> b = new ArrayList<>();
+            for (short j = 0; j <= i; j++) {
+                for (List<Short> el : valikud) {
+                    List<Short> temp = new ArrayList<>(el);
+                    temp.add(j);
+                    b.add(temp);
+                }
+            }
+            valikud = b;
+        }
+        return valikud;
+    }
+
+    public void kirjutaFaili() {
         try {
             PrintWriter valjund = new PrintWriter(new FileWriter("isomorfsus.txt"), true);
             for (GraatsilineGraaf graaf : unikaalsed) {
@@ -90,8 +112,6 @@ public class Graatsilised_UUS3 {
         } catch (IOException e) {
             System.out.println("S/V viga: " + e);
         }
-        */
-
     }
 
 
