@@ -2,14 +2,14 @@
 
 #SBATCH -p main
 
-#SBATCH -J Graceful_graph_sequence
+#SBATCH -J graph_seq21
 
 #SBATCH -N 1
 #SBATCH --ntasks 1
 
 #SBATCH --ntasks-per-node=1
 
-#SBATCH --cpus-per-task 6
+#SBATCH --cpus-per-task 20
 #SBATCH --mem 10GB
 
 #SBATCH -t 10:00:00

@@ -15,10 +15,10 @@ public class GenerateSlurmScripts {
             PrintWriter writer = new PrintWriter(fileName, "UTF-8");
 
             String s = "#!/bin/bash\n" + "\n" + "#SBATCH -p main\n" +
-                    "\n" + "#SBATCH -J Graceful_graph_sequence\n" +
+                    "\n" + "#SBATCH -J graph_seq" + i +"\n" +
                     "\n" + "#SBATCH -N 1\n" + "#SBATCH --ntasks 1\n" +
                     "\n" + "#SBATCH --ntasks-per-node=1\n" +
-                    "\n" + "#SBATCH --cpus-per-task 6\n" + "#SBATCH --mem 10GB\n" +
+                    "\n" + "#SBATCH --cpus-per-task 20\n" + "#SBATCH --mem 10GB\n" +
                     "\n" + "#SBATCH -t 10:00:00\n" + "#SBATCH -D /gpfs/hpchome/miron/thesis/\n" +
                     "\n" + "#SBATCH --output=/gpfs/hpchome/miron/thesis/Graatsiline-Graaf-Arvjada/tulemus12_" + i +".out\n" +
                     "\n" + "#SBATCH --mail-type=ALL\n" + "#SBATCH --mail-user=miron.storozhev96@gmail.com\n" +
