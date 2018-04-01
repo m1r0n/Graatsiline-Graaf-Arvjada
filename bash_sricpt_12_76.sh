@@ -12,7 +12,7 @@
 #SBATCH --cpus-per-task 20
 #SBATCH --mem 10GB
 
-#SBATCH -t 10:00:00
+#SBATCH -t 20:00:00
 #SBATCH -D /gpfs/hpchome/miron/thesis/
 
 #SBATCH --output=/gpfs/hpchome/miron/thesis/Graatsiline-Graaf-Arvjada/tulemus12_76.out
