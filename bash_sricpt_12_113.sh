@@ -2,20 +2,20 @@
 
 #SBATCH -p main
 
-#SBATCH -J graph_seq113
+#SBATCH -J graph_113
 
 #SBATCH -N 1
 #SBATCH --ntasks 1
 
 #SBATCH --ntasks-per-node=1
 
-#SBATCH --cpus-per-task 20
+#SBATCH --cpus-per-task 6
 #SBATCH --mem 10GB
 
 #SBATCH -t 20:00:00
-#SBATCH -D /gpfs/hpchome/miron/thesis/
+#SBATCH -D /gpfs/hpchome/miron/thesis/generateNewGraphs/
 
-#SBATCH --output=/gpfs/hpchome/miron/thesis/Graatsiline-Graaf-Arvjada/tulemus12_113.out
+#SBATCH --output=/gpfs/hpchome/miron/thesis/generateNewGraphs/tulemus12_113.out
 
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=miron.storozhev96@gmail.com

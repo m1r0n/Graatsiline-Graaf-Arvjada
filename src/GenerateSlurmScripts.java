@@ -15,12 +15,12 @@ public class GenerateSlurmScripts {
             PrintWriter writer = new PrintWriter(fileName, "UTF-8");
 
             String s = "#!/bin/bash\n" + "\n" + "#SBATCH -p main\n" +
-                    "\n" + "#SBATCH -J graph_seq" + i +"\n" +
+                    "\n" + "#SBATCH -J graph_" + i +"\n" +
                     "\n" + "#SBATCH -N 1\n" + "#SBATCH --ntasks 1\n" +
                     "\n" + "#SBATCH --ntasks-per-node=1\n" +
-                    "\n" + "#SBATCH --cpus-per-task 20\n" + "#SBATCH --mem 10GB\n" +
-                    "\n" + "#SBATCH -t 20:00:00\n" + "#SBATCH -D /gpfs/hpchome/miron/thesis/\n" +
-                    "\n" + "#SBATCH --output=/gpfs/hpchome/miron/thesis/Graatsiline-Graaf-Arvjada/tulemus12_" + i +".out\n" +
+                    "\n" + "#SBATCH --cpus-per-task 6\n" + "#SBATCH --mem 10GB\n" +
+                    "\n" + "#SBATCH -t 20:00:00\n" + "#SBATCH -D /gpfs/hpchome/miron/thesis/generateNewGraphs/\n" +
+                    "\n" + "#SBATCH --output=/gpfs/hpchome/miron/thesis/generateNewGraphs/tulemus12_" + i +".out\n" +
                     "\n" + "#SBATCH --mail-type=ALL\n" + "#SBATCH --mail-user=miron.storozhev96@gmail.com\n" +
                     "\n" + "module load java-1.8.0_40\n" +
                     "module load jdk-1.8.0_25\n" +

@@ -30,13 +30,17 @@ public class Graatsilised_final{
         File dir = new File(failideAsukoht);
         File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith("tulemus11_"));
 
+
         //Failide sisselugemine
         for (File file : foundFiles) {
+            System.out.println(file.exists());
+            System.out.println(file.canRead());
             Runnable readFromFile = () -> {
 
                 Set<GraatsilineGraaf> threadiGraafid = Collections.synchronizedSet(new HashSet<>());
+                String fileFullName = failideAsukoht + "/" + file.getName();
 
-                try(BufferedReader br = new BufferedReader(new FileReader(file.getName()))) {
+                try(BufferedReader br = new BufferedReader(new FileReader(fileFullName))) {
                     String line = br.readLine();
 
                     int[][] graafiMaatriks = new int[tippudeArv][];
@@ -83,7 +87,10 @@ public class Graatsilised_final{
         for (Set<GraatsilineGraaf> graafid : globalQueue) {
             finalSet.addAll(graafid);
         }
-        System.out.println(finalSet.size());
+
+        for (GraatsilineGraaf graaf : finalSet) {
+            System.out.println(graaf);
+        }
 
         /*
         List<Future<?>> futures = new ArrayList<>();
