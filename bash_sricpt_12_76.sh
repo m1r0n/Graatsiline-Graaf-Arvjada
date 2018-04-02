@@ -13,9 +13,9 @@
 #SBATCH --mem 10GB
 
 #SBATCH -t 20:00:00
-#SBATCH -D /gpfs/hpchome/miron/thesis/generateNewGraphs/
+#SBATCH -D /gpfs/hpchome/miron/thesis/generateNewGraphs2/
 
-#SBATCH --output=/gpfs/hpchome/miron/thesis/generateNewGraphs/tulemus12_76.out
+#SBATCH --output=/gpfs/hpchome/miron/thesis/generateNewGraphs2/tulemus12_76.out
 
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=miron.storozhev96@gmail.com
