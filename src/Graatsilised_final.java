@@ -13,7 +13,7 @@ public class Graatsilised_final{
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
     private static final int nrOfThreads = 6;
-    private static final String failideAsukoht = "C:/Users/Miron/Desktop/Graatsiline-Graaf-Arvjada";
+    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/Graatsiline-Graaf-Arvjada";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
 
@@ -33,8 +33,6 @@ public class Graatsilised_final{
 
         //Failide sisselugemine
         for (File file : foundFiles) {
-            System.out.println(file.exists());
-            System.out.println(file.canRead());
             Runnable readFromFile = () -> {
 
                 Set<GraatsilineGraaf> threadiGraafid = Collections.synchronizedSet(new HashSet<>());

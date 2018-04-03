@@ -6,8 +6,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 11;//servade arv, tippe 1 võrra rohkem !!!!!
-    private static final short rek = 4; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short n = 10;//servade arv, tippe 1 võrra rohkem !!!!!
+    private static final short rek = 3; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
