@@ -9,7 +9,7 @@ import java.util.concurrent.*;
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 10;
+    private static final short tippudeArv = 11;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
     private static final int nrOfThreads = 4;
@@ -28,7 +28,7 @@ public class Graatsilised_final{
 
         //failide nimekiri
         File dir = new File(failideAsukoht);
-        File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith("tulemus_10_"));
+        File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith("tulemus11_"));
 
 
         //Failide sisselugemine

@@ -2,7 +2,7 @@
 
 #SBATCH -p main
 
-#SBATCH -J graph_5
+#SBATCH -J graph_1
 
 #SBATCH -N 1
 #SBATCH --ntasks 1
@@ -12,10 +12,10 @@
 #SBATCH --cpus-per-task 4
 #SBATCH --mem 10GB
 
-#SBATCH -t 02:00:00
-#SBATCH -D /gpfs/hpchome/miron/thesis/graphs10/
+#SBATCH -t 05:00:00
+#SBATCH -D /gpfs/hpchome/miron/thesis/graphs11/
 
-#SBATCH --output=/gpfs/hpchome/miron/thesis/graphs10/tulemus10_5.out
+#SBATCH --output=/gpfs/hpchome/miron/thesis/graphs11/tulemus11_1.out
 
 #SBATCH --mail-type=END
 #SBATCH --mail-user=miron.storozhev96@gmail.com
@@ -25,4 +25,4 @@ module load jdk-1.8.0_25
 
 cd Graatsiline-Graaf-Arvjada/src/
 
-java Graatsilised_UUS3 5
+java Graatsilised_UUS3 1
