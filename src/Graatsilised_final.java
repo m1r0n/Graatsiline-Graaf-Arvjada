@@ -12,8 +12,8 @@ public class Graatsilised_final{
     private static final short tippudeArv = 11;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
-    private static final int nrOfThreads = 10;
-    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs11";
+    private static final int nrOfThreads = 4;
+    private static final String failideAsukoht = "C:/Users/Miron/Desktop/Graatsiline-Graaf-Arvjada";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
 
@@ -86,10 +86,7 @@ public class Graatsilised_final{
             finalSet.addAll(graafid);
         }
 	
-	System.out.println(finalSet.size());
-        for (GraatsilineGraaf graaf : finalSet) {
-            System.out.println(graaf);
-        }
+	    System.out.println(finalSet.size());
 
         /*
         List<Future<?>> futures = new ArrayList<>();
