@@ -9,16 +9,13 @@
 
 #SBATCH --ntasks-per-node=1
 
-#SBATCH --cpus-per-task 4
+#SBATCH --cpus-per-task 5
 #SBATCH --mem 10GB
 
-#SBATCH -t 05:00:00
-#SBATCH -D /gpfs/hpchome/miron/thesis/graphs11/
+#SBATCH -t 20:00:00
+#SBATCH -D /gpfs/hpchome/miron/thesis/graphs12/
 
-#SBATCH --output=/gpfs/hpchome/miron/thesis/graphs11/tulemus11_6.out
-
-#SBATCH --mail-type=END
-#SBATCH --mail-user=miron.storozhev96@gmail.com
+#SBATCH --output=/gpfs/hpchome/miron/thesis/graphs12/tulemus12_6.out
 
 module load java-1.8.0_40
 module load jdk-1.8.0_25

@@ -9,10 +9,10 @@ import java.util.concurrent.*;
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 11;
+    private static final short tippudeArv = 12;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
-    private static final int nrOfThreads = 4;
+    private static final int nrOfThreads = 20;
     private static final String failideAsukoht = "C:/Users/Miron/Desktop/Graatsiline-Graaf-Arvjada";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
@@ -28,7 +28,8 @@ public class Graatsilised_final{
 
         //failide nimekiri
         File dir = new File(failideAsukoht);
-        File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith("tulemus11_"));
+        String algabRegexiga = "tulemus" + tippudeArv + "_";
+        File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith(algabRegexiga));
 
 
         //Failide sisselugemine
