@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Graatsilised_UUS3 {
     private static final short n = 9;//servade arv, tippe 1 võrra rohkem !!!!!
-    private static final short rek = 2; //rek - rekursiooni tase, millest tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short rek = 3; //rek - rekursiooni tase, kus tuleks jagada funktsioon genereeriGraaf lõimedeks
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
@@ -74,10 +74,13 @@ public class Graatsilised_UUS3 {
         //System.out.println("TOTAL:" + counter.toString());
 
 
-
+        System.out.println(counter.toString());
+        kirjutaFaili();
+        /*
         for (GraatsilineGraaf graaf : unikaalsed) {
             System.out.println(graaf);
         }
+        */
 
 
     }
@@ -102,9 +105,10 @@ public class Graatsilised_UUS3 {
         return valikud;
     }
 
-    public void kirjutaFaili() {
+    public static void kirjutaFaili() {
         try {
-            PrintWriter valjund = new PrintWriter(new FileWriter("isomorfsus.txt"), true);
+            String failinimi = "tulemus_" + (n+1) + "_" + arvutiNR + ".txt";
+            PrintWriter valjund = new PrintWriter(new FileWriter(failinimi), true);
             for (GraatsilineGraaf graaf : unikaalsed) {
                 valjund.println(graaf);
             }
