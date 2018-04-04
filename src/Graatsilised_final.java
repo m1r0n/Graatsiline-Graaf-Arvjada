@@ -12,8 +12,8 @@ public class Graatsilised_final{
     private static final short tippudeArv = 11;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
-    private static final int nrOfThreads = 6;
-    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/Graatsiline-Graaf-Arvjada";
+    private static final int nrOfThreads = 10;
+    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs11";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
 
@@ -28,7 +28,7 @@ public class Graatsilised_final{
 
         //failide nimekiri
         File dir = new File(failideAsukoht);
-        File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith("tulemus11_"));
+        File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith("tulemus12_"));
 
 
         //Failide sisselugemine
@@ -85,7 +85,8 @@ public class Graatsilised_final{
         for (Set<GraatsilineGraaf> graafid : globalQueue) {
             finalSet.addAll(graafid);
         }
-
+	
+	System.out.println(finalSet.size());
         for (GraatsilineGraaf graaf : finalSet) {
             System.out.println(graaf);
         }
