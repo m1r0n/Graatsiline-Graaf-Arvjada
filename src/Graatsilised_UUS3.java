@@ -2,6 +2,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -12,6 +15,8 @@ public class Graatsilised_UUS3 {
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
     private static List<List<Short>> options;
+    private static ExecutorService threadPoolExecutor;
+
 
     //Lõim töötab eraldi meetodis
     private static Set<GraatsilineGraaf> genereeriGraaf(int pikkus, short[] servad, Set<GraatsilineGraaf> threadiGraafid) {
@@ -36,6 +41,16 @@ public class Graatsilised_UUS3 {
         if(pikkus == n - rek) {
             for (int i = 0; i <= n - pikkus; i++) {
                 final int index = i;
+                Runnable loim = () -> {
+                    short[] uus = new short[servad.length + 1];
+                    uus[0] = (short) index; //fikseerime serva pikkusega "pikkus"
+                    System.arraycopy(servad, 0, uus, 1, servad.length);
+                    Set<GraatsilineGraaf> threadiKoikGraafid = genereeriGraaf((short) (pikkus - 1), uus, new HashSet<>());
+                    unikaalsed.addAll(threadiKoikGraafid);
+                };
+                threadPoolExecutor.execute(loim);
+
+                /*
                 new Thread(() -> {
                     short[] uus = new short[servad.length + 1];
                     uus[0] = (short) index; //fikseerime serva pikkusega "pikkus"
@@ -43,6 +58,7 @@ public class Graatsilised_UUS3 {
                     Set<GraatsilineGraaf> threadiKoikGraafid = genereeriGraaf((short) (pikkus - 1), uus, new HashSet<>());
                     unikaalsed.addAll(threadiKoikGraafid);
                 }).start();
+                */
             }
         }
         //iga arvuti saab arvutiNR, mis määrab igale arvutile tema vastava haru puus.
@@ -55,6 +71,7 @@ public class Graatsilised_UUS3 {
     }
 
     public static void main(String[] args) {
+        threadPoolExecutor = Executors.newFixedThreadPool(rek);
         arvutiNR = Short.parseShort(args[0]);
         options = genereeriTeeValikud();
 
@@ -65,7 +82,15 @@ public class Graatsilised_UUS3 {
         short[] jada = new short[0];
         genereeriGraaf(n, jada);
 
-        while (Thread.activeCount() > 2) ; //Ootame, kuni kõik lõimed on oma töö lõpetanud
+        //while (Thread.activeCount() > 2) ; //Ootame, kuni kõik lõimed on oma töö lõpetanud
+
+
+        threadPoolExecutor.shutdown();
+
+        try {
+            threadPoolExecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
+        }
 
         //System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
 
@@ -75,12 +100,12 @@ public class Graatsilised_UUS3 {
 
 
         System.out.println(counter.toString());
-        kirjutaFaili();
-        /*
+        //kirjutaFaili();
+
         for (GraatsilineGraaf graaf : unikaalsed) {
             System.out.println(graaf);
         }
-        */
+        
 
 
     }
