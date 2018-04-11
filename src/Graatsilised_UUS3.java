@@ -9,8 +9,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 11;//servade arv, tippe 1 võrra rohkem !!!!!
-    private static final short rek = 4; //rek - rekursiooni tase, kus tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short n = 8;//servade arv, tippe 1 võrra rohkem !!!!!
+    private static final short rek = 3; //rek - rekursiooni tase, kus tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short algoritmiTase = 3; //tase, millest iga arvuti hakkab eraldi tööle. vajaMinevArvutiteArv = algoritmiTase!
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
@@ -49,20 +50,19 @@ public class Graatsilised_UUS3 {
                     unikaalsed.addAll(threadiKoikGraafid);
                 };
                 threadPoolExecutor.execute(loim);
-
-                /*
-                new Thread(() -> {
-                    short[] uus = new short[servad.length + 1];
-                    uus[0] = (short) index; //fikseerime serva pikkusega "pikkus"
-                    System.arraycopy(servad, 0, uus, 1, servad.length);
-                    Set<GraatsilineGraaf> threadiKoikGraafid = genereeriGraaf((short) (pikkus - 1), uus, new HashSet<>());
-                    unikaalsed.addAll(threadiKoikGraafid);
-                }).start();
-                */
             }
         }
-        //iga arvuti saab arvutiNR, mis määrab igale arvutile tema vastava haru puus.
-        else {
+
+        else if(pikkus <= n - algoritmiTase){
+            for (short i = 0; i <= n - pikkus; i++) {
+                short[] uus = new short[servad.length + 1];
+                uus[0] = i; //fikseerime serva pikkusega "pikkus"
+                System.arraycopy(servad, 0, uus, 1, servad.length);
+                genereeriGraaf((pikkus - 1), uus);
+            }
+        }
+
+        else { //iga arvuti saab arvutiNR, mis määrab igale arvutile tema vastava haru puus.
             short[] uus = new short[servad.length + 1];
             uus[0] = options.get(arvutiNR).get(n-pikkus);
             System.arraycopy(servad, 0, uus, 1, servad.length);
@@ -71,14 +71,14 @@ public class Graatsilised_UUS3 {
     }
 
     public static void main(String[] args) {
-        threadPoolExecutor = Executors.newFixedThreadPool(rek);
+        threadPoolExecutor = Executors.newFixedThreadPool(rek+1);
         arvutiNR = Short.parseShort(args[0]);
         options = genereeriTeeValikud();
 
 
         unikaalsed = Collections.synchronizedSet(new HashSet<>());
 
-        //long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         short[] jada = new short[0];
         genereeriGraaf(n, jada);
 
@@ -92,29 +92,30 @@ public class Graatsilised_UUS3 {
         } catch (InterruptedException e) {
         }
 
-        //System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
+        System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
 
-        //long stop = System.currentTimeMillis();
-        //System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
-        //System.out.println("TOTAL:" + counter.toString());
+        long stop = System.currentTimeMillis();
+        System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
+        System.out.println("Läbi vaadati graafe: " + counter.toString());
 
         //kirjutaFaili();
 
+        /*
         for (GraatsilineGraaf graaf : unikaalsed) {
             System.out.println(graaf);
         }
+        */
 
 
 
     }
 
     private static List<List<Short>> genereeriTeeValikud() {
-        int valikuteTase = rek + 1;
         List<List<Short>> valikud = new ArrayList<>();
         List<Short> temporary = new ArrayList();
         temporary.add((short) 0);
         valikud.add(temporary);
-        for (int i = 1; i < valikuteTase; i++) {
+        for (int i = 1; i < (int) algoritmiTase; i++) {
             List<List<Short>> b = new ArrayList<>();
             for (short j = 0; j <= i; j++) {
                 for (List<Short> el : valikud) {
@@ -130,7 +131,7 @@ public class Graatsilised_UUS3 {
 
     public static void kirjutaFaili() {
         try {
-            String failinimi = "tulemus_" + (n+1) + "_" + arvutiNR + ".txt";
+            String failinimi = "tulemus" + (n+1) + "_" + arvutiNR + ".txt";
             PrintWriter valjund = new PrintWriter(new FileWriter(failinimi), true);
             for (GraatsilineGraaf graaf : unikaalsed) {
                 valjund.println(graaf);
