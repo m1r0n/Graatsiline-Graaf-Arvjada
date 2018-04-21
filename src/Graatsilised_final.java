@@ -10,11 +10,11 @@ import java.util.concurrent.locks.Lock;
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 9;
+    private static final short tippudeArv = 13;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
     private static final int nrOfThreads = 4;
-    private static final String failideAsukoht = "C:/Users/Miron/Desktop/Graatsiline-Graaf-Arvjada";
+    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs13/";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
     private static final Object lock2 = new Object();
@@ -30,7 +30,7 @@ public class Graatsilised_final{
 
         //failide nimekiri
         File dir = new File(failideAsukoht);
-        String algabRegexiga = "tulemus_" + tippudeArv + "_";
+        String algabRegexiga = "tulemus" + tippudeArv + "_";
         File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith(algabRegexiga));
 
 
@@ -74,29 +74,24 @@ public class Graatsilised_final{
         System.out.println("Faili lugemine " + (stop - start) / 1000.0 + " sekundit");
 
 
-
+/*
         threadPoolExecutor.shutdown();
-
         try {
             threadPoolExecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         } catch (InterruptedException e) {
         }
 
-
-
         Set<GraatsilineGraaf> finalSet = new HashSet<>();
-
-
         for (Set<GraatsilineGraaf> graafid : globalQueue) {
             finalSet.addAll(graafid);
         }
 	    System.out.println(finalSet.size());
         stop = System.currentTimeMillis();
         System.out.println("Kokku " + (stop - start) / 1000.0 + " sekundit");
+*/
 
 
 
-        /*
         List<Future<?>> futures = new ArrayList<>();
         while (true) {
             if (globalQueue.size() <= 1) {
@@ -121,7 +116,6 @@ public class Graatsilised_final{
                     if (set1 != null && set2 != null) {
                         set1.addAll(set2);
                         globalQueue.add(set1);
-                        System.out.println(globalQueue.size());
                     }
                 };
                 Future<?> f = threadPoolExecutor.submit(runnableTask);
@@ -139,7 +133,7 @@ public class Graatsilised_final{
         System.out.println("n=" + tippudeArv + " puhul on graatsilisi graafe: " + globalQueue.peek().size());
         stop = System.currentTimeMillis();
         System.out.println("Kokku " + (stop - start) / 1000.0 + " sekundit");
-*/
+
 
     }
 

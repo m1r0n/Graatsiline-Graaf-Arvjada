@@ -9,9 +9,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 8;//servade arv, tippe 1 võrra rohkem !!!!!
-    private static final short rek = 3; //rek - rekursiooni tase, kus tuleks jagada funktsioon genereeriGraaf lõimedeks
-    private static final short algoritmiTase = 3; //tase, millest iga arvuti hakkab eraldi tööle. vajaMinevArvutiteArv = algoritmiTase!
+    private static final short n = 12;//servade arv, tippe 1 võrra rohkem !!!!!
+    private static final short rek = 6; //rek - rekursiooni tase, kus tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short algoritmiTase = 5; //tase, millest iga arvuti hakkab eraldi tööle. vajaMinevArvutiteArv = algoritmiTase!
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
@@ -42,14 +42,14 @@ public class Graatsilised_UUS3 {
         if(pikkus == n - rek) {
             for (int i = 0; i <= n - pikkus; i++) {
                 final int index = i;
-                Runnable loim = () -> {
+                //Runnable loim = () -> {
                     short[] uus = new short[servad.length + 1];
                     uus[0] = (short) index; //fikseerime serva pikkusega "pikkus"
                     System.arraycopy(servad, 0, uus, 1, servad.length);
                     Set<GraatsilineGraaf> threadiKoikGraafid = genereeriGraaf((short) (pikkus - 1), uus, new HashSet<>());
                     unikaalsed.addAll(threadiKoikGraafid);
-                };
-                threadPoolExecutor.execute(loim);
+                //};
+                //threadPoolExecutor.execute(loim);
             }
         }
 
@@ -85,26 +85,26 @@ public class Graatsilised_UUS3 {
         //while (Thread.activeCount() > 2) ; //Ootame, kuni kõik lõimed on oma töö lõpetanud
 
 
-        threadPoolExecutor.shutdown();
-
+        //threadPoolExecutor.shutdown();
+        /*
         try {
             threadPoolExecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         } catch (InterruptedException e) {
-        }
+        }*/
 
         System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
 
         long stop = System.currentTimeMillis();
-        System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
-        System.out.println("Läbi vaadati graafe: " + counter.toString());
+        //System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");
+        //System.out.println("Läbi vaadati graafe: " + counter.toString());
 
         //kirjutaFaili();
 
-        /*
+
         for (GraatsilineGraaf graaf : unikaalsed) {
             System.out.println(graaf);
         }
-        */
+
 
 
 
