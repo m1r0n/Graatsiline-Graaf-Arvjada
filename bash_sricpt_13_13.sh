@@ -12,7 +12,7 @@
 #SBATCH --cpus-per-task 6
 #SBATCH --mem 10GB
 
-#SBATCH -t 48:00:00
+#SBATCH -t 192:00:00
 #SBATCH -D /gpfs/hpchome/miron/thesis/graphs13/
 
 #SBATCH --output=/gpfs/hpchome/miron/thesis/graphs13/tulemus13_13.out

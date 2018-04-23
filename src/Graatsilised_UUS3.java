@@ -92,7 +92,7 @@ public class Graatsilised_UUS3 {
         } catch (InterruptedException e) {
         }*/
 
-        System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
+        //System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
 
         long stop = System.currentTimeMillis();
         //System.out.println("Aega kulus " + (stop - start) / 1000.0 + " sekundit");

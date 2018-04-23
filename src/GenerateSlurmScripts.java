@@ -19,7 +19,7 @@ public class GenerateSlurmScripts {
                     "\n" + "#SBATCH -N 1\n" + "#SBATCH --ntasks 1\n" +
                     "\n" + "#SBATCH --ntasks-per-node=1\n" +
                     "\n" + "#SBATCH --cpus-per-task 6\n" + "#SBATCH --mem 10GB\n" +
-                    "\n" + "#SBATCH -t 48:00:00\n" + "#SBATCH -D /gpfs/hpchome/miron/thesis/graphs13/\n" +
+                    "\n" + "#SBATCH -t 192:00:00\n" + "#SBATCH -D /gpfs/hpchome/miron/thesis/graphs13/\n" +
                     "\n" + "#SBATCH --output=/gpfs/hpchome/miron/thesis/graphs13/tulemus13_" + i +".out\n" +
                     "\n" + "module load java-1.8.0_40\n" +
                     "module load jdk-1.8.0_25\n" +
