@@ -17,6 +17,10 @@
 
 #SBATCH --output=/gpfs/hpchome/miron/thesis/graphs13/tulemus13_45.out
 
+#SBATCH --mail-user=miron.storozhev96@gmail.com
+
+#SBATCH --mail-type=END
+
 module load java-1.8.0_40
 module load jdk-1.8.0_25
 

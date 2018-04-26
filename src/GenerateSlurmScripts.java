@@ -21,6 +21,8 @@ public class GenerateSlurmScripts {
                     "\n" + "#SBATCH --cpus-per-task 6\n" + "#SBATCH --mem 10GB\n" +
                     "\n" + "#SBATCH -t 192:00:00\n" + "#SBATCH -D /gpfs/hpchome/miron/thesis/graphs13/\n" +
                     "\n" + "#SBATCH --output=/gpfs/hpchome/miron/thesis/graphs13/tulemus13_" + i +".out\n" +
+                    "\n" + "#SBATCH --mail-user=miron.storozhev96@gmail.com\n"+
+                    "\n" + "#SBATCH --mail-type=END\n"+
                     "\n" + "module load java-1.8.0_40\n" +
                     "module load jdk-1.8.0_25\n" +
                     "\n" + "cd Graatsiline-Graaf-Arvjada/src/\n" +
