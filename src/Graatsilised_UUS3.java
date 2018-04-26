@@ -85,12 +85,12 @@ public class Graatsilised_UUS3 {
         //while (Thread.activeCount() > 2) ; //Ootame, kuni kõik lõimed on oma töö lõpetanud
 
 
-        //threadPoolExecutor.shutdown();
-        /*
+        threadPoolExecutor.shutdown();
+
         try {
             threadPoolExecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         } catch (InterruptedException e) {
-        }*/
+        }
 
         //System.out.println("n=" + (n + 1) + " tipu puhul on erinevaid graafe: " + unikaalsed.size());
 
@@ -104,10 +104,6 @@ public class Graatsilised_UUS3 {
         for (GraatsilineGraaf graaf : unikaalsed) {
             System.out.println(graaf);
         }
-
-
-
-
     }
 
     private static List<List<Short>> genereeriTeeValikud() {
