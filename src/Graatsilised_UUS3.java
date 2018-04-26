@@ -42,14 +42,14 @@ public class Graatsilised_UUS3 {
         if(pikkus == n - rek) {
             for (int i = 0; i <= n - pikkus; i++) {
                 final int index = i;
-                //Runnable loim = () -> {
+                Runnable loim = () -> {
                     short[] uus = new short[servad.length + 1];
                     uus[0] = (short) index; //fikseerime serva pikkusega "pikkus"
                     System.arraycopy(servad, 0, uus, 1, servad.length);
                     Set<GraatsilineGraaf> threadiKoikGraafid = genereeriGraaf((short) (pikkus - 1), uus, new HashSet<>());
                     unikaalsed.addAll(threadiKoikGraafid);
-                //};
-                //threadPoolExecutor.execute(loim);
+                };
+                threadPoolExecutor.execute(loim);
             }
         }
 
