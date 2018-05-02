@@ -10,11 +10,11 @@ import java.util.concurrent.locks.Lock;
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 11;
+    private static final short tippudeArv = 12;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
-    private static final int nrOfThreads = 4;
-    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs13/";
+    private static final int nrOfThreads = 6;
+    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs12/";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
     private static final Object lock2 = new Object();
@@ -71,7 +71,7 @@ public class Graatsilised_final{
 
         while (globalQueue.size() < foundFiles.length); //Wait until all threads done
         long stop = System.currentTimeMillis();
-        System.out.println("Faili lugemine " + (stop - start) / 1000.0 + " sekundit");
+        //System.out.println("Faili lugemine " + (stop - start) / 1000.0 + " sekundit");
 
 
 /*
@@ -130,7 +130,7 @@ public class Graatsilised_final{
             e.printStackTrace();
         }
 
-        System.out.println("n=" + tippudeArv + " puhul on graatsilisi graafe: " + globalQueue.peek().size());
+        //System.out.println("n=" + tippudeArv + " puhul on graatsilisi graafe: " + globalQueue.peek().size());
         stop = System.currentTimeMillis();
         System.out.println("Kokku " + (stop - start) / 1000.0 + " sekundit");
         for (GraatsilineGraaf graaf : globalQueue.peek()) {
