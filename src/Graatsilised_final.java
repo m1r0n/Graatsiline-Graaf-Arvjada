@@ -10,7 +10,7 @@ import java.util.concurrent.locks.Lock;
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 13;
+    private static final short tippudeArv = 10;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
     private static final int nrOfThreads = 4;

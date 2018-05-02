@@ -9,9 +9,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Graatsilised_UUS3 {
-    private static final short n = 12;//servade arv, tippe 1 võrra rohkem !!!!!
-    private static final short rek = 6; //rek - rekursiooni tase, kus tuleks jagada funktsioon genereeriGraaf lõimedeks
-    private static final short algoritmiTase = 5; //tase, millest iga arvuti hakkab eraldi tööle. vajaMinevArvutiteArv = algoritmiTase!
+    private static final short n = 3;//servade arv, tippe 1 võrra rohkem !!!!!
+    private static final short rek = 2; //rek - rekursiooni tase, kus tuleks jagada funktsioon genereeriGraaf lõimedeks
+    private static final short algoritmiTase = 1; //tase, millest iga arvuti hakkab eraldi tööle. vajaMinevArvutiteArv = algoritmiTase!
     private static short arvutiNR;
     private static AtomicInteger counter = new AtomicInteger(0);
     private static volatile Set<GraatsilineGraaf> unikaalsed;
