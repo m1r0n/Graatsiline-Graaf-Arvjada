@@ -10,7 +10,7 @@ import java.util.concurrent.locks.Lock;
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 12;
+    private static final short tippudeArv = 11;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
     private static final int nrOfThreads = 6;
@@ -25,7 +25,6 @@ public class Graatsilised_final{
 
         graafid = Collections.synchronizedSet(new HashSet<>());
         globalQueue = new ConcurrentLinkedQueue();
-
         ExecutorService threadPoolExecutor = Executors.newFixedThreadPool(nrOfThreads);
 
         //failide nimekiri
@@ -130,7 +129,7 @@ public class Graatsilised_final{
             e.printStackTrace();
         }
 
-        //System.out.println("n=" + tippudeArv + " puhul on graatsilisi graafe: " + globalQueue.peek().size());
+        System.out.println("n=" + tippudeArv + " puhul on graatsilisi graafe: " + globalQueue.peek().size());
         stop = System.currentTimeMillis();
         System.out.println("Kokku " + (stop - start) / 1000.0 + " sekundit");
         for (GraatsilineGraaf graaf : globalQueue.peek()) {
