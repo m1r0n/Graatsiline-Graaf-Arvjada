@@ -3,8 +3,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.concurrent.locks.Lock;
-
 /**
  * Created by Miron on 22/03/2018.
  */
@@ -17,7 +15,6 @@ public class Graatsilised_final{
     private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs12/";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
-    private static final Object lock2 = new Object();
 
     public static void main(String[] args) {
 
