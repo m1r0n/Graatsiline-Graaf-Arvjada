@@ -8,11 +8,11 @@ import java.util.concurrent.*;
  */
 public class Graatsilised_final{
 
-    private static final short tippudeArv = 11;
+    private static final short tippudeArv = 13;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
     private static final int nrOfThreads = 6;
-    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs12/";
+    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs13/tulemused_10_19/";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
 
@@ -67,7 +67,7 @@ public class Graatsilised_final{
 
         while (globalQueue.size() < foundFiles.length); //Wait until all threads done
         long stop = System.currentTimeMillis();
-        //System.out.println("Faili lugemine " + (stop - start) / 1000.0 + " sekundit");
+        System.out.println("Faili lugemine " + (stop - start) / 1000.0 + " sekundit");
 
 
 /*
