@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb02549c-246e-49ea-bfa6-94246bb80a91" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Ahel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Ahel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/GenerateSlurmScripts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/GenerateSlurmScripts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/GraatsilineGraaf.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/GraatsilineGraaf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Graatsilised_UUS3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Graatsilised_UUS3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Graatsilised_final.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Graatsilised_final.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/IntPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/IntPair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Isomorphism.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Isomorphism.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/NodeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/NodeList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/VF2_State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graatsiline-Graaf-Arvjada/VF2_State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GenerateSlurmScripts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GenerateSlurmScripts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graatsilised_UUS3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graatsilised_UUS3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraatsilineGraaf.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graatsilised_UUS3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graatsilised_final.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graatsilised_final.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graatsilised_final.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IntPair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Isomorphism.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NodeList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VF2_State.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,16 +26,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Graatsilised_final.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Graatsilised_final.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Graatsilised_final.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1062">
-              <caret line="80" column="47" lean-forward="true" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
+            <state relative-caret-position="170">
+              <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenerateSlurmScripts.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GenerateSlurmScripts.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GenerateSlurmScripts.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -51,8 +47,8 @@
       <file leaf-file-name="Graatsilised_UUS3.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Graatsilised_UUS3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+            <state relative-caret-position="1700">
+              <caret line="107" selection-start-line="107" selection-end-line="107" />
             </state>
           </provider>
         </entry>
@@ -79,9 +75,9 @@
       <list>
         <option value="$PROJECT_DIR$/bash_sricpt_10_2.sh" />
         <option value="$PROJECT_DIR$/tulemus_5_0.txt" />
-        <option value="$PROJECT_DIR$/src/Graatsilised_final.java" />
         <option value="$PROJECT_DIR$/src/Graatsilised_UUS3.java" />
         <option value="$PROJECT_DIR$/src/GenerateSlurmScripts.java" />
+        <option value="$PROJECT_DIR$/src/Graatsilised_final.java" />
       </list>
     </option>
   </component>
@@ -92,10 +88,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1827" />
-    <option name="y" value="300" />
-    <option name="width" value="1612" />
-    <option name="height" value="867" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -118,9 +114,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -139,7 +135,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GenerateSlurmScripts">
+  <component name="RunManager" selected="Application.Graatsilised_final">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -614,9 +610,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Graatsilised_final" />
         <item itemvalue="Application.GenerateSlurmScripts" />
         <item itemvalue="Application.Graatsilised_UUS3" />
-        <item itemvalue="Application.Graatsilised_final" />
       </list>
     </recent_temporary>
   </component>
@@ -646,6 +642,7 @@
       <workItem from="1522758859015" duration="2093000" />
       <workItem from="1522788583927" duration="402000" />
       <workItem from="1522814834398" duration="13553000" />
+      <workItem from="1525726479416" duration="990000" />
     </task>
     <task id="LOCAL-00001" summary="Change bash scripts">
       <created>1522488216938</created>
@@ -707,45 +704,44 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38870000" />
+    <option name="totallyTimeSpent" value="39860000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1592" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Tool Output" order="7" />
+      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.15254237" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.20078227" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="ANTLR Preview" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32312566" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.15254237" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20168954" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.185625" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32312566" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Nl-Palette" order="2" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Properties" order="3" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.185625" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Properties" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -769,6 +765,27 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Graatsilised_final.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="47" lean-forward="true" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graatsilised_UUS3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GenerateSlurmScripts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="90" selection-start-line="22" selection-start-column="90" selection-end-line="22" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Graatsilised_final.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
@@ -971,71 +988,36 @@
     <entry file="file://$PROJECT_DIR$/bash_sricpt_12_0.sh" />
     <entry file="file://$PROJECT_DIR$/tulemus12_0.out" />
     <entry file="file://$PROJECT_DIR$/tulemus12_4.out" />
-    <entry file="file://$PROJECT_DIR$/bash_sricpt_10_1.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tulemus_10_0">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201104" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tulemus_5_0.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bash_sricpt_10_0.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tulemus_10_4.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tulemus_10_3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-194602" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tulemus_10_5.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tulemus_10_0.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-193497">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tulemus_10_0" />
+    <entry file="file://$PROJECT_DIR$/tulemus_5_0.txt" />
+    <entry file="file://$PROJECT_DIR$/bash_sricpt_10_0.sh" />
+    <entry file="file://$PROJECT_DIR$/tulemus_10_3.txt" />
+    <entry file="file://$PROJECT_DIR$/tulemus_10_0.txt" />
     <entry file="file://$PROJECT_DIR$/src/Graatsilised_UUS3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+        <state relative-caret-position="1700">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graatsilised_final.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
-          <caret line="80" column="47" lean-forward="true" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bash_sricpt_10_2.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/bash_sricpt_10_2.sh" />
     <entry file="file://$PROJECT_DIR$/src/GenerateSlurmScripts.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="22" column="90" selection-start-line="22" selection-start-column="90" selection-end-line="22" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tulemus13_54.out">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tulemus13_53.out">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graatsilised_final.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
         </state>
       </provider>
     </entry>
