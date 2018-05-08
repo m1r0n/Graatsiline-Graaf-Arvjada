@@ -11,7 +11,7 @@ public class Graatsilised_final{
     private static final short tippudeArv = 13;
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
-    private static final int nrOfThreads = 4;
+    private static final int nrOfThreads = 6;
     private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs13/tulemused_0_5";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
