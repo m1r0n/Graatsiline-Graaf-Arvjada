@@ -12,7 +12,7 @@ public class Graatsilised_final{
     private static final short servadeArv = tippudeArv - 1;
     private static volatile Set<GraatsilineGraaf> graafid;
     private static final int nrOfThreads = 6;
-    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs13/tulemused_0_5";
+    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs13/final";
     private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
     private static final Object lock = new Object();
 
@@ -26,7 +26,8 @@ public class Graatsilised_final{
 
         //failide nimekiri
         File dir = new File(failideAsukoht);
-        String algabRegexiga = "tulemus" + tippudeArv + "_";
+        //String algabRegexiga = "tulemus" + tippudeArv + "_";
+        String algabRegexiga = "graatsilised_" + tippudeArv + "_";
         File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith(algabRegexiga));
 
 
