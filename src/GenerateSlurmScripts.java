@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
  * Created by Miron on 30/03/2018.
  */
 public class GenerateSlurmScripts {
+    //Kood mitmeks SLURMI skripti genereerimiseks
 
     private static int numberOfFiles = 60;
 
@@ -26,7 +27,7 @@ public class GenerateSlurmScripts {
                     "\n" + "module load java-1.8.0_40\n" +
                     "module load jdk-1.8.0_25\n" +
                     "\n" + "cd Graatsiline-Graaf-Arvjada/src/\n" +
-                    "\n" + "java Graatsilised_UUS3 " + i;
+                    "\n" + "java Graatsilised_Main " + i;
             writer.print(s);
             writer.close();
         }

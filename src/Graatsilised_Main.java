@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class Graatsilised_UUS3 {
+public class Graatsilised_Main {
     private static final short n = 3;//servade arv, tippe 1 võrra rohkem !!!!!
     private static final short rek = 2; //rek - rekursiooni tase, kus tuleks jagada funktsioon genereeriGraaf lõimedeks
     private static final short algoritmiTase = 1; //tase, millest iga arvuti hakkab eraldi tööle. vajaMinevArvutiteArv = algoritmiTase!
@@ -53,6 +53,7 @@ public class Graatsilised_UUS3 {
             }
         }
 
+        //Programmi jagamine osadeks
         else if(pikkus <= n - algoritmiTase){
             for (short i = 0; i <= n - pikkus; i++) {
                 short[] uus = new short[servad.length + 1];
