@@ -27,7 +27,7 @@ public class GenerateSlurmScripts {
                     "\n" + "module load java-1.8.0_40\n" +
                     "module load jdk-1.8.0_25\n" +
                     "\n" + "cd Graatsiline-Graaf-Arvjada/src/\n" +
-                    "\n" + "java Graatsilised_Main " + i;
+                    "\n" + "java Graceful_Main " + i;
             writer.print(s);
             writer.close();
         }

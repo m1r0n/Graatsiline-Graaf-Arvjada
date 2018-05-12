@@ -6,28 +6,28 @@ import java.util.concurrent.*;
 /**
  * Created by Miron on 22/03/2018.
  */
-public class Graatsilised_final{
+public class Graceful_final {
 
-    private static final short tippudeArv = 13;
-    private static final short servadeArv = tippudeArv - 1;
-    private static volatile Set<GraatsilineGraaf> graafid;
+    private static final short nrOfVertices = 13;
+    private static final short nrOfEdges = nrOfVertices - 1;
+    private static volatile Set<GracefulGraph> graphs;
     private static final int nrOfThreads = 6;
-    private static final String failideAsukoht = "/gpfs/hpchome/miron/thesis/graphs13/final";
-    private static ConcurrentLinkedQueue<Set<GraatsilineGraaf>> globalQueue;
+    private static final String filesLocation = "/gpfs/hpchome/miron/thesis/graphs13/final";
+    private static ConcurrentLinkedQueue<Set<GracefulGraph>> globalQueue;
     private static final Object lock = new Object();
 
     public static void main(String[] args) {
 
         long start = System.currentTimeMillis();
 
-        graafid = Collections.synchronizedSet(new HashSet<>());
+        graphs = Collections.synchronizedSet(new HashSet<>());
         globalQueue = new ConcurrentLinkedQueue();
         ExecutorService threadPoolExecutor = Executors.newFixedThreadPool(nrOfThreads);
 
         //failide nimekiri
-        File dir = new File(failideAsukoht);
-        //String algabRegexiga = "tulemus" + tippudeArv + "_";
-        String algabRegexiga = "graatsilised_" + tippudeArv + "_";
+        File dir = new File(filesLocation);
+        //String algabRegexiga = "tulemus" + nrOfVertices + "_";
+        String algabRegexiga = "graatsilised_" + nrOfVertices + "_";
         File[] foundFiles = dir.listFiles((dir1, name) -> name.startsWith(algabRegexiga));
 
 
@@ -35,24 +35,24 @@ public class Graatsilised_final{
         for (File file : foundFiles) {
             Runnable readFromFile = () -> {
 
-                Set<GraatsilineGraaf> threadiGraafid = Collections.synchronizedSet(new HashSet<>());
-                String fileFullName = failideAsukoht + "/" + file.getName();
+                Set<GracefulGraph> threadiGraafid = Collections.synchronizedSet(new HashSet<>());
+                String fileFullName = filesLocation + "/" + file.getName();
 
                 try(BufferedReader br = new BufferedReader(new FileReader(fileFullName))) {
                     String line = br.readLine();
 
-                    int[][] graafiMaatriks = new int[tippudeArv][];
-                    int rida = 0;
+                    int[][] graphMatrix = new int[nrOfVertices][];
+                    int row = 0;
                     while (line != null) {
                         if (line.length() != 0) {
-                            rida++;
+                            row++;
                             int[] array = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-                            graafiMaatriks[rida-1] = array;
+                            graphMatrix[row-1] = array;
 
-                            if (rida == tippudeArv) {
-                                threadiGraafid.add(new GraatsilineGraaf(graafiMaatriks, servadeArv));
-                                graafiMaatriks = new int[tippudeArv][];
-                                rida = 0;
+                            if (row == nrOfVertices) {
+                                threadiGraafid.add(new GracefulGraph(graphMatrix, nrOfEdges));
+                                graphMatrix = new int[nrOfVertices][];
+                                row = 0;
                             }
                         }
                         line = br.readLine();
@@ -78,9 +78,9 @@ public class Graatsilised_final{
         } catch (InterruptedException e) {
         }
 
-        Set<GraatsilineGraaf> finalSet = new HashSet<>();
-        for (Set<GraatsilineGraaf> graafid : globalQueue) {
-            finalSet.addAll(graafid);
+        Set<GracefulGraph> finalSet = new HashSet<>();
+        for (Set<GracefulGraph> graphs : globalQueue) {
+            finalSet.addAll(graphs);
         }
 	    System.out.println(finalSet.size());
         stop = System.currentTimeMillis();
@@ -102,8 +102,8 @@ public class Graatsilised_final{
             }
             else if (globalQueue.size() > 1){
                 Runnable runnableTask = () -> {
-                    Set<GraatsilineGraaf> set1 = null;
-                    Set<GraatsilineGraaf> set2 = null;
+                    Set<GracefulGraph> set1 = null;
+                    Set<GracefulGraph> set2 = null;
                     synchronized (lock) {
                         if (globalQueue.size() > 1) {
                             set1 = globalQueue.poll();
@@ -127,10 +127,10 @@ public class Graatsilised_final{
             e.printStackTrace();
         }
 
-        System.out.println("n=" + tippudeArv + " puhul on graatsilisi graafe: " + globalQueue.peek().size());
+        System.out.println("n=" + nrOfVertices + " puhul on graatsilisi graafe: " + globalQueue.peek().size());
         stop = System.currentTimeMillis();
         System.out.println("Kokku " + (stop - start) / 1000.0 + " sekundit");
-        for (GraatsilineGraaf graaf : globalQueue.peek()) {
+        for (GracefulGraph graaf : globalQueue.peek()) {
             System.out.println(graaf);
         }
 
